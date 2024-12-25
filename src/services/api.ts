@@ -8,9 +8,9 @@ axios.defaults.params = {
   orientation: 'landscape',
 };
 
-export const fetchImages = async <T> (query: string, page: number): Promise<T | undefined> => {
+export const fetchImages = async <T> (query: string, page: number): Promise<T> => {
   try {
-    const response = await axios.get(`/search/photos`, {
+    const response = await axios.get<T>(`/search/photos`, {
     params: {
       query,
       page,
@@ -20,7 +20,7 @@ export const fetchImages = async <T> (query: string, page: number): Promise<T | 
           },
   });
   return response.data;
-  } catch (error: any) {
-    console.log(error.message)
+  } catch (error) {
+    throw error;
   }
 };

@@ -39,7 +39,7 @@ export const App: React.FC = () => {
       try {
         setIsLoading(true);
         setError(false);
-        const dataImages: ImageData | undefined = await fetchImages(query, page);
+        const dataImages: ImageData = await fetchImages(query, page);
         console.log(dataImages);
         if (!dataImages) {
         throw new Error("No data received from the API");
@@ -66,7 +66,7 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     if (page === 1) return;
-    console.log(divRef.current)
+    if (!divRef.current) return;
     divRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
