@@ -1,0 +1,30 @@
+.loadMore {
+  position: fixed;
+  top: 16px;
+  left: 500px;
+  z-index: 10;
+
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(124, 113, 113);
+  background-color: transparent;
+  color: rgb(124, 113, 113);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.loadMore:hover,
+.loadMore:focus {
+  background-color: rgb(124, 113, 113);
+  color: white;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.loadMore:disabled {
+  background-color: transparent;
+  color: rgb(124, 113, 113);
+  cursor: not-allowed;
+}
