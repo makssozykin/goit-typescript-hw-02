@@ -41,7 +41,9 @@ export const App: React.FC = () => {
         setError(false);
         const dataImages: ImageData | undefined = await fetchImages(query, page);
         console.log(dataImages);
-        if (dataImages.total_pages === 0) return;
+        if (!dataImages) {
+        throw new Error("No data received from the API");
+      }
         setImages((prevImages: Image[]): Image[] => [...prevImages, ...dataImages.results]);
         setTotalPages(dataImages.total_pages);
       } catch (error) {
