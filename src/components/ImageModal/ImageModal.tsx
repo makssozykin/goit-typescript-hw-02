@@ -5,7 +5,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import s from './ImageModal.module.css';
 
-const ImageModal = ({ isOpenModal, onCloseModal, image, alt }) => {
+type Props = {
+  isOpenModal: boolean;
+  onCloseModal: () => void;
+  image: string;
+  alt: string;
+}
+
+const ImageModal = ({ isOpenModal, onCloseModal, image, alt }: Props) => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();

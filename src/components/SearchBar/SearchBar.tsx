@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
 import toast from 'react-hot-toast';
 import { IoSearch } from 'react-icons/io5';
 import s from './SearchBar.module.css';
 
-const SearchBar = ({ onSubmit }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+type Props = {
+  onSubmit: (value: string) => void;
+}
 
-  const handleSubmit = event => {
+const SearchBar = ({ onSubmit}: Props) => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const trimSearchQuery = searchQuery.trim();
     if (!trimSearchQuery) {
@@ -17,7 +21,7 @@ const SearchBar = ({ onSubmit }) => {
     setSearchQuery('');
   };
 
-  const handleInputChange = event => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
   return (

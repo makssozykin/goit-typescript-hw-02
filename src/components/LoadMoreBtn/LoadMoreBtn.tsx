@@ -1,6 +1,11 @@
 import s from './LoadMoreBtn.module.css';
 
-const LoadMoreBtn = ({ onLoadMore, isActive }) => {
+type Props = {
+  onLoadMore: () => void;
+  isActive: boolean;
+};
+
+const LoadMoreBtn = ({ onLoadMore, isActive }: Props) => {
   return (
     <>
       <button
