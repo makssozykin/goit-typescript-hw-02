@@ -39,7 +39,7 @@ export const App: React.FC = () => {
       try {
         setIsLoading(true);
         setError(false);
-        const dataImages: ImageData = await fetchImages(query, page);
+        const dataImages: ImageData = await fetchImages<ImageData>(query, page);
         console.log(dataImages);
         if (!dataImages) {
         throw new Error("No data received from the API");

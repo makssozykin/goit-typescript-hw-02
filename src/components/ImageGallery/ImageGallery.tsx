@@ -1,8 +1,9 @@
 import ImageCard from '../ImageCard/ImageCard';
 import s from './ImageGallery.module.css';
+import { Image } from '../App/App.types';
 
 type Props = {
-  images: Array<{ id: number; urls: { small: string; regular: string }; alt_description: string }>,
+  images: Image[],
   onModal: () => void,
   modalInfo: (image: string, alt: string) => void,
 }
